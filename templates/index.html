@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+        {% for article in articles %} 
+        {% if article.featured %}
+        <div class="item active">
+        {% else %}
+        <div class="item">
+        {% endif %}
+        <img src="{{SITEURL}}/static/images/project/{{article.icon}}" alt="{{article.title}}">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>{{ article.title | striptags}}</h1>
+                    <p class="lead">{{ article.summary }}</p>
+                    {% if article.iconauthor %}
+                    <p><i class="icon-picture"></i> Photo by {{ article.iconauthor }}</p>
+                    {% endif %}
+                    <a class="btn btn-large btn-inverse" href="{{ article.url }}"> Project details <i class="icon-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel -->
+
+<div class="container">
+<div class="row">
+    <div class="span12">
+        <h2>Projects</h2>
+        <ul class="thumbnails">
+            {% for article in articles %}
+            <li class="span4">
+            <div class="thumbnail">
+                <div class="thumbnail-caption"><a href="{{article.url}}">{{article.title}}</a></div>
+                <img src="{{SITEURL}}/static/images/project/{{article.icon}}" alt="{{article.title}}">
+            </div>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
