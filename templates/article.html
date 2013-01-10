@@ -26,20 +26,24 @@
             </ul>
         </div>
         <div class="span4">
+            {% if article.metadata.partners %}
             <h5>Project Partners</h5>
             {% for partner in article.metadata.partners %}
             <ul>
                 <li><i class="icon-link"></i> {{partner}}</li>
             </ul>
             {% endfor %}
+            {% endif %}
         </div>
         <div class="span4">
+            {% if article.metadata.funders %}
             <h5>Project Funders</h5>
             {% for funder in article.metadata.funders %}
             <ul>
                 <li><i class="icon-link"></i> {{funder}}</li>
             </ul>
             {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>
