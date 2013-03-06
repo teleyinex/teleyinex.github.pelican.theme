@@ -9,20 +9,20 @@
             <li>{{ year }}</li>
             <ul>
             {% for pub in publications[year] %}
-                <li>
+                <li itemscope="http://schema.org/ScholarlyArticle">
                 {% if pub.type == "phdthesis" %}
-                <strong>{{pub.fields.title}}.</strong> <em>{{pub.fields.author}}</em>. Ph.D thesis, {{pub.fields.school}}, ISBN: {{pub.fields.isbn}}
+                <strong><span itemprop="name">{{pub.fields.title}}</span>.</strong> <em>{{pub.fields.author}}</em>. Ph.D thesis, {{pub.fields.school}}, ISBN: {{pub.fields.isbn}}
                 {% endif %}
                 {% if pub.type == "article" %}
-                <strong>{{pub.fields.title}}.</strong> <em>{{pub.fields.author}}</em>. In {{pub.fields.journal}}, {% if pub.fields.vol %} vol. {{pub.fields.vol}}, {% endif %} {%if pub.fields.num %} num. {{pub.fields.num}}, {% endif %}  {%if pub.fields.issn %} ISSN: {{pub.fields.issn}}, {% endif %} {%if pub.fields.pages %} pp. {{pub.fields.pages}},{% endif %} {%if pub.fields.doi %} <a href="http://dx.doi.org/{{pub.fields.doi}}">doi: {{pub.fields.doi}}</a>{% endif %}
+                <strong><span itemprop="name">{{pub.fields.title}}</span>.</strong> <em>{{pub.fields.author}}</em>. In {{pub.fields.journal}}, {% if pub.fields.vol %} vol. {{pub.fields.vol}}, {% endif %} {%if pub.fields.num %} num. {{pub.fields.num}}, {% endif %}  {%if pub.fields.issn %} ISSN: {{pub.fields.issn}}, {% endif %} {%if pub.fields.pages %} pp. {{pub.fields.pages}},{% endif %} {%if pub.fields.doi %} <a href="http://dx.doi.org/{{pub.fields.doi}}">doi: {{pub.fields.doi}}</a>{% endif %}
                 {% endif %}
                 {% if pub.type == "inproceedings" %}
-                <strong>{{pub.fields.title}}.</strong> <em>{{pub.fields.author}}</em>. In {{pub.fields.booktitle}}, {% if pub.fields.vol %} vol. {{pub.fields.vol}}, {% endif %} {%if pub.fields.num %} num. {{pub.fields.num}}, {% endif %}  {%if pub.fields.isbn %} ISBN: {{pub.fields.isbn}}, {% endif %} {%if pub.fields.pages %} pp. {{pub.fields.pages}} {% endif %} {%if pub.fields.doi %} doi: {{pub.fields.doi}}.{% endif %} {%if pub.fields.editor %} Editor:{{pub.fields.editor}}. {%endif%} {%if pub.fields.publisher%} Publisher: {{pub.fields.publisher}}{%endif%}
+                <strong><span itemprop="name">{{pub.fields.title}}</span>.</strong> <em>{{pub.fields.author}}</em>. In {{pub.fields.booktitle}}, {% if pub.fields.vol %} vol. {{pub.fields.vol}}, {% endif %} {%if pub.fields.num %} num. {{pub.fields.num}}, {% endif %}  {%if pub.fields.isbn %} ISBN: {{pub.fields.isbn}}, {% endif %} {%if pub.fields.pages %} pp. {{pub.fields.pages}} {% endif %} {%if pub.fields.doi %} doi: {{pub.fields.doi}}.{% endif %} {%if pub.fields.editor %} Editor:{{pub.fields.editor}}. {%endif%} {%if pub.fields.publisher%} Publisher: {{pub.fields.publisher}}{%endif%}
 
                 {% endif %}
 
                 {% if pub.type == "inbook" %}
-                <strong>{{pub.fields.title}}.</strong> <em>{{pub.fields.author}}</em>. In {{pub.fields.title}}, {{pub.fields.chapter}}{% if pub.fields.vol %} vol. {{pub.fields.vol}}, {% endif %} {%if pub.fields.num %} num. {{pub.fields.num}}, {% endif %}  {%if pub.fields.isbn %} ISBN: {{pub.fields.isbn}}, {% endif %} {%if pub.fields.pages %} pp. {{pub.fields.pages}} {% endif %} {%if pub.fields.doi %} doi: {{pub.fields.doi}}.{% endif %} {%if pub.fields.address %}{{pub.fields.address}}{%endif%}
+                <strong><span itemprop="name">{{pub.fields.title}}</span>.</strong> <em>{{pub.fields.author}}</em>. In {{pub.fields.title}}, {{pub.fields.chapter}}{% if pub.fields.vol %} vol. {{pub.fields.vol}}, {% endif %} {%if pub.fields.num %} num. {{pub.fields.num}}, {% endif %}  {%if pub.fields.isbn %} ISBN: {{pub.fields.isbn}}, {% endif %} {%if pub.fields.pages %} pp. {{pub.fields.pages}} {% endif %} {%if pub.fields.doi %} doi: {{pub.fields.doi}}.{% endif %} {%if pub.fields.address %}{{pub.fields.address}}{%endif%}
 
                 {% endif %}
 
